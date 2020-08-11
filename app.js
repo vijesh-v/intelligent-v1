@@ -12,6 +12,7 @@ var logger = log4js.getLogger('app');
 
 var routes = require('./routes/i2devopsRoutes');
 const appProperties = require('./properties/app-properties');
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 
 const port =  appProperties.app_port;
 
