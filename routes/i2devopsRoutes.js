@@ -24,7 +24,7 @@ router.post('/api/v1/i2devops', async (req, res) => {
 	}
 	catch (err) {
 		logger.error("Exception in Serving the Request "+err)
-		res.status(500).send(response);
+		res.status(500).send({"Exception in Serving the Request "+err});
 	}
 });
 
