@@ -22,7 +22,7 @@ router.post('/api/v1/i2devops', async (req, res) => {
           responseType: 'json',
           throwHttpErrors : false
         }
-		const stackstormresponse = await got.post("https://35.238.22.179/api/v1/webhooks/pod_restart", options);
+		const stackstormresponse = await got.post("https://34.69.73.187/api/v1/webhooks/pod_restart", options);
 		logger.debug(JSON.stringify(stackstormresponse));
 		res.status(stackstormresponse.statusCode).send(stackstormresponse.body);
 	}
