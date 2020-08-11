@@ -1,0 +1,27 @@
+{
+  "name": "i2devops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon --legacy-watch ./",
+    "test": "mocha --timeout 30000"
+  },
+  "author": "i2devops",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "async": "^3.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "got": "^11.5.0",
+    "https": "^1.0.0",
+    "log4js": "^1.1.1",
+    "nodemon": "^2.0.3",
+    "os": "^0.1.1"
+  }
+}
