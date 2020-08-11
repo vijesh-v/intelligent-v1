@@ -18,7 +18,7 @@ router.post('/api/v1/i2devops', async (req, res) => {
           },
 	  json: {
 		 body: req.body
-	  }
+	  },
           responseType: 'json',
           throwHttpErrors : false
         }
