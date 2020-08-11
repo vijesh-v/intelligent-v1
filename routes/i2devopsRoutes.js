@@ -1,5 +1,6 @@
 'use strict';
 var express = require('express');
+var got = require('got');
 var log4js = require('log4js');
 log4js.loadAppender('file');
 var logger = log4js.getLogger('i2devopsRoutes');
