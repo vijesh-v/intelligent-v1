@@ -17,7 +17,7 @@ router.post('/api/v1/i2devops', async (req, res) => {
             'St2-Api-Key': "ZTA5OTI4NTAwODg5YTYyMGU2OTYyNjY2MWEzNzA5ZTdhNWEyNzA1YzhmOTc2NzRmOTllN2Q2MjMzMTUyN2UwNw",
           },
 	  json: {
-		 body: req.body
+		req.body
 	  },
           responseType: 'json',
           throwHttpErrors : false
