@@ -57,7 +57,8 @@ router.get('/api/v1/i2devops', async (req, res) => {
 router.post('/api/v1/i2devops', async (req, res) => {
 	try {
 		logger.debug("/api/v1/i2devops");
-		console.log(req);
+		console.log(req.body);
+		
 
 		const options = {
 		  headers: {
@@ -74,6 +75,7 @@ router.post('/api/v1/i2devops', async (req, res) => {
 		res.status(200).send({"message":"Successfully Posted To Stackstorm"});
 	}
 	catch (err) {
+		console.log(req.IncomingMessage.body);
 		logger.error("Exception in Serving the Request "+err)
 		res.status(500).send("Exception in Serving the Request");
 	}
