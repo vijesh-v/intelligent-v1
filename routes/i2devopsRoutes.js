@@ -58,17 +58,17 @@ router.post('/api/v1/i2devops', async (req, res) => {
 	try {
 		logger.debug("/api/v1/i2devops");
 
-        const options = {
-          headers: {
-            'St2-Api-Key': "a80c0920174d4cc79c0cc44f8e066e5b",
-          },
-	  json: req.body,
-          responseType: 'json',
-          throwHttpErrors : false
-        }
-		const stackstormresponse = await got.post("https://35.193.227.27/api/v1/webhooks/pod_restart", options);
-		stackstormresponse.challenge = req.body.challenge;
-		res.status(stackstormresponse.statusCode).send(stackstormresponse.body);
+		const options = {
+		  headers: {
+		    'St2-Api-Key': "NjJmYjM3M2UwNDM3NjUyYzRkNDkwZGQ5Y2QwODQxMzViYzcyMDg3YWY1OGY2ZDczOTI5M2FjNzJkYzIwODViMw",
+		  },
+		  json: req.body,
+		  responseType: 'json',
+		  throwHttpErrors : false
+		}
+		
+		const stackstormresponse = got.post("https://35.193.227.27/api/v1/webhooks/pod_memory_limit_reached", options);
+		res.status(200).send({"message":"Successfully Posted To Stackstorm"});
 	}
 	catch (err) {
 		logger.error("Exception in Serving the Request "+err)
