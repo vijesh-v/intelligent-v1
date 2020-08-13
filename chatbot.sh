@@ -22,7 +22,7 @@ if [ $flag -gt 0 ];then
         ./oc login --token=Ns9Q0zEUDSvDs-Guyp60uUIoEvNXUmOBMHeQv1IpSAE --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30450
 
         ./oc project i2devops
-        output=`./oc $command`
+        output=`./oc $command 2>&1`
 
         echo "Sending the Result to Slack"
 
