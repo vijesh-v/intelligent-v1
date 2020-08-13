@@ -1,4 +1,4 @@
-command="{{ trigger.body.text }}"
+command="$1"
 echo "Executing Command : $command"
 
 if [ $command -eq *"get pods"*  ]
