@@ -15,8 +15,9 @@ then
         curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$output\"}" https://hooks.slack.com/services/T018BGFM3M4/B018Z0L6EF6/$2
 fi
 
-if [ "$command" == *'delete pod'* ]
-then
+flag=`echo $command|awk '{print match($0,"delete pod")}'`;
+
+if [ $flag -gt 0 ];then
         echo "Executing OC Commands"
         ./oc login --token=Ns9Q0zEUDSvDs-Guyp60uUIoEvNXUmOBMHeQv1IpSAE --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30450
 
@@ -26,4 +27,7 @@ then
         echo "Sending the Result to Slack"
 
         curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$output\"}" https://hooks.slack.com/services/T018BGFM3M4/B018Z0L6EF6/$2
+else
+    echo "fail";
+
 fi
