@@ -2,7 +2,7 @@ command="$1"
 
 echo "Executing Command : $command"
 
-if [[ "$command" -eq "get pods"" ]]
+if [[ "$command" == "get pods*" ]]
 then
         ./oc login --token=Ns9Q0zEUDSvDs-Guyp60uUIoEvNXUmOBMHeQv1IpSAE --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30450
 
