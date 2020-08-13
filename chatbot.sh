@@ -25,6 +25,7 @@ if [ $flag -gt 0 ];then
         output=`./oc $command 2>&1`
         output=`echo $output | sed -e "s/\"//g"`
         echo $output
+        sleep 20s
         echo "Sending the Result to Slack"
 
         curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$output\"}" https://hooks.slack.com/services/T018BGFM3M4/B018Z0L6EF6/$2
