@@ -23,6 +23,7 @@ if [ $flag -gt 0 ];then
 
         ./oc project i2devops
         output=`./oc $command 2>&1`
+        output=`echo $output | sed -e "s/\"//g"`
         echo $output
         echo "Sending the Result to Slack"
 
