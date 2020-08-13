@@ -57,6 +57,7 @@ router.get('/api/v1/i2devops', async (req, res) => {
 router.post('/api/v1/i2devops', async (req, res) => {
 	try {
 		logger.debug("/api/v1/i2devops");
+		console.log(req);
 
 		const options = {
 		  headers: {
