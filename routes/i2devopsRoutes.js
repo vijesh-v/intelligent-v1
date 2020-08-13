@@ -20,10 +20,8 @@ router.post('/api/v1/ocgetpods', async (req, res) => {
           responseType: 'json',
           throwHttpErrors : false
         }
-		const stackstormresponse = {
-			challenge : req.body.challenge
-		};
-		res.status(200).send(stackstormresponse);
+		
+		res.status(200).send(req.body);
 	}
 	catch (err) {
 		logger.error("Exception in Serving the Request "+err)
