@@ -23,7 +23,7 @@ router.post('/api/v1/ocgetpods', async (req, res) => {
 		const stackstormresponse = await got.post("https://35.193.227.27/api/v1/webhooks/executeoc", options);
 		res.status(stackstormresponse.statusCode).send(stackstormresponse.body);
 		
-		res.status(200).send({"Message" : "Waiting for Response from Openshift"});
+		res.status(200).send("Fetching Details from Openshift");
 	}
 	catch (err) {
 		logger.error("Exception in Serving the Request "+err)
