@@ -12,16 +12,9 @@ router.post('/api/v1/ocgetpods', async (req, res) => {
 	try {
 		logger.debug("/api/v1/ocgetpods");
 
-        const options = {
-          headers: {
-            'St2-Api-Key': "ZTA5OTI4NTAwODg5YTYyMGU2OTYyNjY2MWEzNzA5ZTdhNWEyNzA1YzhmOTc2NzRmOTllN2Q2MjMzMTUyN2UwNw",
-          },
-	  json: req.body,
-          responseType: 'json',
-          throwHttpErrors : false
-        }
+	logger.debug(req);
 		
-		res.status(200).send(req.body);
+		res.status(200).send(req);
 	}
 	catch (err) {
 		logger.error("Exception in Serving the Request "+err)
