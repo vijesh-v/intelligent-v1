@@ -62,12 +62,12 @@ router.post('/api/v1/i2devops', async (req, res) => {
 		  headers: {
 		    'St2-Api-Key': "NjJmYjM3M2UwNDM3NjUyYzRkNDkwZGQ5Y2QwODQxMzViYzcyMDg3YWY1OGY2ZDczOTI5M2FjNzJkYzIwODViMw",
 		  },
-		  json: req,
+		  //json: req,
 		  responseType: 'json',
 		  throwHttpErrors : false
 		}
 		
-		logger.log(req);
+		//logger.log(req);
 		
 		const stackstormresponse = got.post("https://35.193.227.27/api/v1/webhooks/remediatebot", options);
 		res.status(200).send({"message":"Successfully Posted To Stackstorm"});
