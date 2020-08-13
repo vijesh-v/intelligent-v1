@@ -8,6 +8,29 @@ logger.setLevel('TRACE');
 
 var router = express.Router();
 
+router.get('/api/v1/i2devops', async (req, res) => {
+	try {
+		logger.debug("/api/v1/i2devops");
+
+        const options = {
+          headers: {
+            'St2-Api-Key': "ZTA5OTI4NTAwODg5YTYyMGU2OTYyNjY2MWEzNzA5ZTdhNWEyNzA1YzhmOTc2NzRmOTllN2Q2MjMzMTUyN2UwNw",
+          },
+	  json: req.body,
+          responseType: 'json',
+          throwHttpErrors : false
+        }
+		const stackstormresponse = {
+			challenge : req.body.challenge
+		};
+		res.status(200).send(stackstormresponse);
+	}
+	catch (err) {
+		logger.error("Exception in Serving the Request "+err)
+		res.status(500).send("Exception in Serving the Request");
+	}
+});
+
 router.post('/api/v1/i2devops', async (req, res) => {
 	try {
 		logger.debug("/api/v1/i2devops");
