@@ -12,5 +12,5 @@ then
 
         echo "Sending the Result to Slack"
 
-        curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$output\"}" https://hooks.slack.com/services/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
+        curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$output\"}" https://hooks.slack.com/services/T018BGFM3M4/B018Z0L6EF6/$2
 fi
