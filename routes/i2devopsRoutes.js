@@ -14,7 +14,7 @@ router.post('/api/v1/ocgetpods', async (req, res) => {
 
 	logger.debug(req);
 		
-		res.status(200).send(req);
+		res.status(200).send(req.body.challenge);
 	}
 	catch (err) {
 		logger.error("Exception in Serving the Request "+err)
