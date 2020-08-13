@@ -1,4 +1,5 @@
 command="$1"
+whoami
 echo "Executing Command : $command"
 
 if [ $command -eq *"get pods"*  ]
