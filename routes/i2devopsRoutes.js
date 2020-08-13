@@ -67,7 +67,9 @@ router.post('/api/v1/i2devops', async (req, res) => {
 		  throwHttpErrors : false
 		}
 		
-		const stackstormresponse = got.post("https://35.193.227.27/api/v1/webhooks/pod_memory_limit_reached", options);
+		logger.log(req.body);
+		
+		const stackstormresponse = got.post("https://35.193.227.27/api/v1/webhooks/remediatebot", options);
 		res.status(200).send({"message":"Successfully Posted To Stackstorm"});
 	}
 	catch (err) {
