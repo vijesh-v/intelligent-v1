@@ -3,7 +3,9 @@ deploymentconfig="$2"
 slacktoken="$3"
 smstoken="$4"
 adotoken="$5"
-mobileno="$6"
+openshifttoken="$6"
+mobileno="$7"
+
 
 
 
@@ -13,7 +15,7 @@ mobileno="$6"
         echo "Created Ticket $ticketid"
 
         echo "Executing OC Commands"
-        ./oc login --token=Ns9Q0zEUDSvDs-Guyp60uUIoEvNXUmOBMHeQv1IpSAE --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30450
+        ./oc login --token=$openshifttoken --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30450
 
         ./oc project i2devops
         output=`./oc rollout undo dc/$deploymentconfig`
