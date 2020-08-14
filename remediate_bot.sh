@@ -3,6 +3,7 @@ deploymentconfig="$2"
 token="$3"
 smstoken="$4"
 adotoken="$5"
+mobileno="$6"
 
 
 
@@ -50,7 +51,7 @@ adotoken="$5"
         if [ $a -lt 50 ]
         then
                         echo "Closing Ticket $1"
-                        cmd=`curl -X PATCH 'https://dev.azure.com/i2devops/i2devops/_apis/wit/workitems/$ticketid?api-version=5.1' -H 'Content-Type: application/json-patch+json' -H 'authorization: Basic OjRub3lyb2F4NGhnaWZoYWdmbWl4Y28yNmxoajRmdDczYmRpZms3M2RyM3puaGxneTI1YmE=' -d '[{"op": "add",    "path": "/fields/System.State",    "from": "default",    "value": "Done" }]'`
+                        cmd=`curl -X PATCH "https://dev.azure.com/i2devops/i2devops/_apis/wit/workitems/$ticketid?api-version=5.1" -H 'Content-Type: application/json-patch+json' -H "authorization: Basic $adotoken" -d '[{"op": "add",    "path": "/fields/System.State",    "from": "default",    "value": "Done" }]'`
 
                         echo "Sending the Update to Slack"
                         curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Ticket <https://dev.azure.com/i2devops/i2devops/_workitems/edit/$ticketid|$ticketid>  Remediated Successfully\"}"  "https://hooks.slack.com/services/T018BGFM3M4/B01964QPZJM/$token"
@@ -59,6 +60,6 @@ adotoken="$5"
                         curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Ticket $ticketid Couldnt be Remediated.\"}"  "https://hooks.slack.com/services/T018BGFM3M4/B01964QPZJM/$token"
 
                         echo "Notifying the End User on Configured Mobile Numbers"
-                        curl -X POST https://www.fast2sms.com/dev/bulk -H "authorization: $smstoken" -d "sender_id=FSTSMS&message=i2devops ALERT: Ticket $ticketid Couldnt be Remediated&language=english&route=p&numbers=9020678775"
+                        curl -X POST https://www.fast2sms.com/dev/bulk -H "authorization: $smstoken" -d "sender_id=FSTSMS&message=i2devops ALERT: Ticket $ticketid Couldnt be Remediated&language=english&route=p&numbers=$mobileno"
 
         fi
